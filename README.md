@@ -27,9 +27,11 @@ acceptance of the MIMIC-IV DUA.
 
 ## Notes on two derived variables
 
-**pH.** Blood-gas pH must be restricted to arterial specimens (`specimen = 'ART'`). A label-based match
-across all specimen types mixes urine, pleural and other fluids into the same column and produces values
-that are not physiologically possible for arterial blood.
+**pH.** The pH field must not be built by matching on the label alone. In MIMIC-IV two laboratory items
+carry the label "pH": itemid 50820 (blood gas; median 7.37, IQR 7.31-7.42) and itemid 51491 (urine;
+median 6.00, IQR 5.50-6.00). Merging them produces values between 5.00 and 6.80 that are incompatible
+with arterial blood. `py/06_export_arterial_ph.py` re-extracts the blood-gas item only; a SQL variant
+that restricts to arterial specimens is in `sql/01_arterial_ph.sql`.
 
 **PLR.** PLR is the platelet count divided by the *absolute* lymphocyte count
 (white-cell count × lymphocyte percentage / 100). Dividing by the lymphocyte percentage instead rescales
