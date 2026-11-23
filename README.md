@@ -12,6 +12,9 @@ Companion repository for:
 |---|---|
 | `sql/01_arterial_ph.sql` | Arterial blood-gas pH re-extraction (specimen-filtered, earliest value within the first 24 h of ICU admission) |
 | `py/02_fix_plr.py` | Platelet-to-lymphocyte ratio recomputed from the absolute lymphocyte count |
+| `py/03_run_analysis.py` | Full nested pipeline: Tables 1–6 and the artefacts behind Figs 2–6, S1 and S2 |
+| `py/03_make_figures.py` | Generates Figs 2–6, S1 and S2 from those artefacts |
+| `py/03_sensitivity.py` | Split-stability and collinearity sensitivity analyses |
 | `py/04_figure_spec_check.py` | Checks every figure against the PLOS ONE specifications (300–600 dpi, 2.63–7.5 × 8.75 in, ≤10 MB) |
 | Release assets | Data-extraction outputs, derived-variable tables and modelling scripts (Python/R) underlying the analysis |
 
